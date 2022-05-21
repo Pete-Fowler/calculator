@@ -8,11 +8,11 @@ const seven = document.getElementById('seven');
 const eight = document.getElementById('eight');
 const nine = document.getElementById('nine');
 const zero = document.getElementById('zero');
-const displaywindow = document.getElementById('display-numbers');
+const display = document.getElementById('display');
 
-let 
+let displayValue = [];
 
-one.addEventListener('click', display(one));
+one.addEventListener('click', () => {changeDisplay(1);});
 
 function add(a, b) {
     return a + b;
@@ -34,6 +34,7 @@ function operate(operator, a, b) {
     return operator(a, b);
 }
 
-function display(num) {
-
+function changeDisplay(num) {
+    displayValue += num;
+    display.textContent = displayValue;
 }
