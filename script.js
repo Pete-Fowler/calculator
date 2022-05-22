@@ -63,7 +63,11 @@ function multiply (a, b) {
 }
 
 function divide(a, b) {
-    return roundToTwo(a / b);
+    if (b == 0) {
+        return 'No thanks';
+    } else {
+        return roundToTwo(a / b);
+    }
 }
 
 // Puts clicked numbers into the display screen
