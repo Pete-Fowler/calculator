@@ -74,14 +74,17 @@ function changeDisplay(num) {
 
 // Called when an operand is clicked
 function compute(operand) {
-    lastOperand = operand;
+    if (!lastOperand) {
+        lastOperand = operand;
+        }  
     if(!n1) {
-    n1 = Number(displayValue);
-    displayValue = '';              // prevents string concatenation from display
+        n1 = Number(displayValue);
+        displayValue = '';              // prevents string concatenation from display
     } else if (n1) {
-    n2 = Number(displayValue);
-    operate(operand, n1, n2);
+        n2 = Number(displayValue);
+        operate(lastOperand, n1, n2);
     }
+    lastOperand = operand;
 }
 
 // Calls the actual math function
