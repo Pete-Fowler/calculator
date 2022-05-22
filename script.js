@@ -46,6 +46,7 @@ equalsBtn.addEventListener('click', equals);
 let displayValue = '';
 let n1 = NaN;
 let n2 = NaN;
+let result = NaN;
 let lastOperand;
 
 // Functions
@@ -76,7 +77,7 @@ function compute(operand) {
     lastOperand = operand;
     if(!n1) {
     n1 = Number(displayValue);
-    displayValue = '';
+    displayValue = '';              // prevents string concatenation 
     } else if (n1) {
     n2 = Number(displayValue);
     operate(operand, n1, n2);
@@ -85,7 +86,7 @@ function compute(operand) {
 
 // Calls the actual math function
 function operate(operator, a, b) {
-    let result = operator(a, b);
+    result = operator(a, b);
     display.textContent = result;
     n1 = result;
     displayValue = '';
