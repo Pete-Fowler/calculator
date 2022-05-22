@@ -16,6 +16,7 @@ const nineBtn = document.getElementById('nine');
 const zeroBtn = document.getElementById('zero');
 const dotBtn = document.getElementById('dot');
 const display = document.getElementById('display');
+const delBtn = document.getElementById('back-space');
 
 oneBtn.addEventListener('click', () => {changeDisplay(1);});
 twoBtn.addEventListener('click', () => {changeDisplay(2);});
@@ -28,6 +29,7 @@ eightBtn.addEventListener('click', () => {changeDisplay(8);});
 nineBtn.addEventListener('click', () => {changeDisplay(9);});
 zeroBtn.addEventListener('click', () => {changeDisplay(0);});
 dotBtn.addEventListener('click', () => {changeDisplay('.');});
+delBtn.addEventListener('click', backSpace);
 
 // Operators event listeners
 const addBtn = document.getElementById('add');
@@ -131,5 +133,8 @@ function roundToTwo(num) {
     return Math.round((num + Number.EPSILON) * 100) / 100;
 }
 
-// Need bug fix for 14 * 3 = / 7
-// it is not getting 42 as n1 and is then dividing by zero
+function backSpace () {
+    let newStr = displayValue.slice(0, displayValue.length - 1);
+    display.textContent = newStr;
+    displayValue = display.textContent;
+}
