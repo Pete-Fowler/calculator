@@ -39,7 +39,7 @@ addBtn.addEventListener('click', () => {compute(add);});
 subtractBtn.addEventListener('click', () => {compute(subtract);});
 multiplyBtn.addEventListener('click', () => {compute(multiply);});
 divideBtn.addEventListener('click', () => {compute(divide);});
-equalsBtn.addEventListener('click', clear); 
+acBtn.addEventListener('click', clear); 
 
 // Global variables
 let displayValue = '';
