@@ -110,6 +110,7 @@ function operate(operator, a, b) {
 }
 
 function equals () {
+    dotBtn.disabled = false;
     n2 = Number(displayValue);
     displayValue = '';
     operate(lastOperand, n1, n2);

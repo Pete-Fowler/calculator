@@ -46,19 +46,22 @@ button {
     width: 95%;
     height: auto;
     padding: .0rem;
-    opacity: .7;
     border: .1rem solid black;
     border-radius: .3rem;
     margin: .2rem;
     box-shadow: .1rem .1rem .2rem grey;
 }
 
-button:hover {
-    opacity: 1;
+button:hover:enabled {
+    opacity: .6;
 }
 
-button:active {
+button:active:enabled {
     box-shadow: 0rem 0rem .1rem grey;
+}
+
+button:disabled {
+    opacity: .5;
 }
 
 .operand {
