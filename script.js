@@ -14,7 +14,8 @@ const sevenBtn = document.getElementById('seven');
 const eightBtn = document.getElementById('eight');
 const nineBtn = document.getElementById('nine');
 const zeroBtn = document.getElementById('zero');
-const displayBtn = document.getElementById('display');
+const dotBtn = document.getElementById('dot');
+const display = document.getElementById('display');
 
 oneBtn.addEventListener('click', () => {changeDisplay(1);});
 twoBtn.addEventListener('click', () => {changeDisplay(2);});
@@ -26,6 +27,7 @@ sevenBtn.addEventListener('click', () => {changeDisplay(7);});
 eightBtn.addEventListener('click', () => {changeDisplay(8);});
 nineBtn.addEventListener('click', () => {changeDisplay(9);});
 zeroBtn.addEventListener('click', () => {changeDisplay(0);});
+dotBtn.addEventListener('click', () => {changeDisplay('.');});
 
 // Operators event listeners
 const addBtn = document.getElementById('add');
@@ -75,13 +77,17 @@ function changeDisplay(num) {
     if (displayValue.length > 5) {
         display.textContent = 'Nice try';
     } else {
-    displayValue += num;
-    display.textContent = displayValue;
+        if (num === '.') {
+            dotBtn.disabled = true;
+        }
+        displayValue += num;
+        display.textContent = displayValue;
     }
 }
 
 // Called when an operand is clicked
 function compute(operand) {
+    dotBtn.disabled = false;
     if (!lastOperand) {
         lastOperand = operand;
         }  
