@@ -77,7 +77,7 @@ function compute(operand) {
     lastOperand = operand;
     if(!n1) {
     n1 = Number(displayValue);
-    displayValue = '';              // prevents string concatenation 
+    displayValue = '';              // prevents string concatenation from display
     } else if (n1) {
     n2 = Number(displayValue);
     operate(operand, n1, n2);
@@ -92,8 +92,13 @@ function operate(operator, a, b) {
     displayValue = '';
 }
 
+// When equals button is pressed
+// n2 is the display value, and operate
+// 
 function equals () {
-
+    n2 = Number(displayValue);
+    displayValue = '';
+    operate(lastOperand, n1, n2);
 }
 
 function clear () {
@@ -101,4 +106,6 @@ function clear () {
     displayValue = '';
     n1 = NaN;
     n2 = NaN;
+    result = NaN;
+    lastOperand;
 }
