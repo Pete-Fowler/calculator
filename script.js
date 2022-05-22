@@ -51,25 +51,29 @@ let lastOperand;
 
 // Functions
 function add(a, b) {
-    return a + b;
+    return roundToTwo(a + b);
 }
 
 function subtract(a, b) {
-    return a - b;
+    return roundToTwo(a - b);
 }
 
 function multiply (a, b) {
-    return a * b;
+    return roundToTwo(a * b);
 }
 
 function divide(a, b) {
-    return a / b;
+    return roundToTwo(a / b);
 }
 
 // Puts clicked numbers into the display screen
 function changeDisplay(num) {
+    if (displayValue.length > 5) {
+        display.textContent = 'Nice try';
+    } else {
     displayValue += num;
     display.textContent = displayValue;
+    }
 }
 
 // Called when an operand is clicked
@@ -108,4 +112,8 @@ function clear () {
     n2 = NaN;
     result = NaN;
     lastOperand = '';
+}
+
+function roundToTwo(num) {
+    return Math.round((num + Number.EPSILON) * 100) / 100;
 }
