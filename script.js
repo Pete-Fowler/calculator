@@ -40,11 +40,13 @@ subtractBtn.addEventListener('click', () => {compute(subtract);});
 multiplyBtn.addEventListener('click', () => {compute(multiply);});
 divideBtn.addEventListener('click', () => {compute(divide);});
 acBtn.addEventListener('click', clear); 
+equalsBtn.addEventListener('click', equals);
 
 // Global variables
 let displayValue = '';
 let n1 = NaN;
 let n2 = NaN;
+let lastOperand;
 
 // Functions
 function add(a, b) {
@@ -63,13 +65,6 @@ function divide(a, b) {
     return a / b;
 }
 
-function operate(operator, a, b) {
-    let result = operator(a, b);
-    display.textContent = result;
-    n1 = result;
-    displayValue = '';
-}
-
 // Puts clicked numbers into the display screen
 function changeDisplay(num) {
     displayValue += num;
@@ -77,8 +72,8 @@ function changeDisplay(num) {
 }
 
 // Called when an operand is clicked
-
 function compute(operand) {
+    lastOperand = operand;
     if(!n1) {
     n1 = Number(displayValue);
     displayValue = '';
@@ -86,6 +81,18 @@ function compute(operand) {
     n2 = Number(displayValue);
     operate(operand, n1, n2);
     }
+}
+
+// Calls the actual math function
+function operate(operator, a, b) {
+    let result = operator(a, b);
+    display.textContent = result;
+    n1 = result;
+    displayValue = '';
+}
+
+function equals () {
+
 }
 
 function clear () {
