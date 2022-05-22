@@ -103,6 +103,8 @@ function equals () {
     n2 = Number(displayValue);
     displayValue = '';
     operate(lastOperand, n1, n2);
+    n1 = NaN;
+    displayValue = display.textContent;
 }
 
 function clear () {
@@ -117,3 +119,6 @@ function clear () {
 function roundToTwo(num) {
     return Math.round((num + Number.EPSILON) * 100) / 100;
 }
+
+// Need bug fix for 14 * 3 = / 7
+// it is not getting 42 as n1 and is then dividing by zero
