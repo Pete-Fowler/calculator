@@ -30,6 +30,7 @@ nineBtn.addEventListener('click', () => {changeDisplay(9);});
 zeroBtn.addEventListener('click', () => {changeDisplay(0);});
 dotBtn.addEventListener('click', () => {changeDisplay('.');});
 delBtn.addEventListener('click', backSpace);
+document.addEventListener('keydown', keyPress);
 
 // Operators event listeners
 const addBtn = document.getElementById('add');
@@ -120,7 +121,7 @@ function equals () {
     displayValue = display.textContent;
 }
 
-function clear () {
+function clear() {
     display.textContent = '';
     displayValue = '';
     n1 = NaN;
@@ -133,8 +134,28 @@ function roundToTwo(num) {
     return Math.round((num + Number.EPSILON) * 100) / 100;
 }
 
-function backSpace () {
+function backSpace() {
     let newStr = displayValue.slice(0, displayValue.length - 1);
     display.textContent = newStr;
     displayValue = display.textContent;
+}
+
+function keyPress(e) {
+    if (e.key >=0 && e.key <= 9) {
+        changeDisplay(e.key);
+    } else if (e.key == '+') {
+        compute(add);
+    } else if (e.key == '-') {
+        compute(subtract);
+    } else if (e.key == '*') {
+        compute(multiply);
+    } else if (e.key == '/' || e.key == '\\') {
+        compute(divide);
+    } else if (e.key == '=' || e.key == 'Enter') {
+        equals();
+    } else if (e.key == 'Backspace' || e.key == 'Delete') {
+        backSpace();
+    } else if (e.key == 'Escape') {
+        clear();
+    }  
 }
