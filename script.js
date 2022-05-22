@@ -32,7 +32,7 @@ const addBtn = document.getElementById('add');
 const subtractBtn = document.getElementById('subtract');
 const multiplyBtn = document.getElementById('multiply');
 const divideBtn = document.getElementById('divide');
-const acBtn = document.getElementById('ac');
+const acBtn = document.getElementById('clear');
 const equalsBtn = document.getElementById('equals');
 
 addBtn.addEventListener('click', () => {compute(add);});
