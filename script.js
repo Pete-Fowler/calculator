@@ -95,9 +95,6 @@ function operate(operator, a, b) {
     displayValue = '';
 }
 
-// When equals button is pressed
-// n2 is the display value, and operate
-// 
 function equals () {
     n2 = Number(displayValue);
     displayValue = '';
@@ -110,5 +107,5 @@ function clear () {
     n1 = NaN;
     n2 = NaN;
     result = NaN;
-    lastOperand;
+    lastOperand = '';
 }
